@@ -1,1 +1,3 @@
-export class InstantiationWorkflow {}
+export class InstantiationWorkflow {
+  instantiateGlobal() {}
+}
