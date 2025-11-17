@@ -1,0 +1,23 @@
+{
+  "name": "js-runtime-mirror",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SenecaX/js-runtime-mirror.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SenecaX/js-runtime-mirror/issues"
+  },
+  "homepage": "https://github.com/SenecaX/js-runtime-mirror#readme",
+  "description": "",
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}
