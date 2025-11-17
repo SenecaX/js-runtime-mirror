@@ -23,4 +23,11 @@ export class DeclarativeEnvironmentRecord {
   HasBinding(name) {
     return this.bindings.hasOwnProperty(name);
   }
+
+  GetBindingValue(name) {
+    const binding = this.bindings[name];
+    if(!binding) throw "Does not exist"
+    if(!binding.initialized) throw "Variable is not initialized"
+    return this.bindings[name].value;
+  }
 }
