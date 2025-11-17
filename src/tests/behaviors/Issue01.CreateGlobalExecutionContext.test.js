@@ -26,7 +26,6 @@ describe("Issue01.CreateGlobalExecutionContext", () => {
 	it("TC5.NoExtraProperties", () => {
 		const ctx = new ExecutionContext()
 		const keys = Object.keys(ctx)
-        console.log("keys", keys)
 		expect(keys).toEqual(["lexicalEnv", "variableEnv", "thisBinding"])
 	})
 

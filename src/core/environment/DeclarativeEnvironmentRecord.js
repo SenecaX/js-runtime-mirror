@@ -1,1 +1,5 @@
-export class DeclarativeEnvironmentRecord {}
+export class DeclarativeEnvironmentRecord {
+    constructor() {
+        this.bindings = {};
+    }
+}
