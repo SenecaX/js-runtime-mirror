@@ -30,4 +30,11 @@ export class DeclarativeEnvironmentRecord {
     if(!binding.initialized) throw "Variable is not initialized"
     return this.bindings[name].value;
   }
+
+  SetMutableBinding(name, value) {
+    const binding = this.bindings[name];
+    if(!binding.mutable) throw "Value not mutable";
+    if(!binding.initialized) throw "Not initialized."
+    binding.value = value;
+  }
 }
