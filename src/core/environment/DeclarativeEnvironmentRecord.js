@@ -19,4 +19,8 @@ export class DeclarativeEnvironmentRecord {
     binding.value = value;
     binding.initialized = true;
   }
+
+  HasBinding(name) {
+    return this.bindings.hasOwnProperty(name);
+  }
 }
