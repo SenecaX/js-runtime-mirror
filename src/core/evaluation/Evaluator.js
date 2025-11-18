@@ -28,4 +28,18 @@ export class Evaluator {
       return { type: "throw", value: error };
     }
   }
+
+  executeVariableStatement(node) {
+    for (let i = 0; i < node.declarations.length; i++) {
+      this.lexicalEnv.environmentRecord.InitializeBinding(
+        node.declarations[i].id.name,
+        node.declarations[i].init ? node.declarations[i].init.value : undefined
+      );
+    }
+
+    return {
+      type: "normal",
+      value: undefined,
+    };
+  }
 }
