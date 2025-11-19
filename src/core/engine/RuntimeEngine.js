@@ -10,4 +10,8 @@ export class RuntimeEngine {
   parse(source) {
     return acorn.parse(source, { ecmaVersion: 2020 })
   }
+
+  instantiate(ast) {
+    this.instantiator.instantiateGlobal(ast);
+  }
 }
