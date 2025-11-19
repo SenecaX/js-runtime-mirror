@@ -1,10 +1,12 @@
 import * as acorn from "acorn"
 import { InstantiationWorkflow } from "../instantiation/InstantiationWorkflow"
+import { Evaluator } from "../evaluation/Evaluator";
 
 export class RuntimeEngine {
   constructor() {
     this.instantiator = new InstantiationWorkflow();
     this.controlFlow = { execute() {} }
+    this.evaluator = new Evaluator();
   }
 
   parse(source) {
@@ -14,4 +16,9 @@ export class RuntimeEngine {
   instantiate(ast) {
     this.instantiator.instantiateGlobal(ast);
   }
+
+  evaluate(ast) {
+    return this.evaluator.traverseASTInOrder(ast.body)
+  }
+
 }
