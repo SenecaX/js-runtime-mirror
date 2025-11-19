@@ -6,4 +6,11 @@ export class CompletionRecord {
             value,
         })
     }
+
+    static Throw(error) {
+        return Object.freeze({
+            type: "throw",
+            value: error
+        })
+    }
 }
