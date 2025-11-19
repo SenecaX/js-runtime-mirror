@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+  "test:debug": "NODE_OPTIONS='--inspect-brk' VITEST_POOL=threads VITEST_MAX_THREADS=1 npx vitest --watch --pool=threads --poolOptions.threads.singleThread=true"
   },
   "repository": {
     "type": "git",

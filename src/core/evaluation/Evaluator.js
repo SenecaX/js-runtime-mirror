@@ -42,4 +42,8 @@ export class Evaluator {
       value: undefined,
     };
   }
+
+  executeExpressionStatement(node) {
+    return this.evaluateLiteral(node.expression);
+  }
 }
