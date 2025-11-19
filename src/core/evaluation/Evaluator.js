@@ -1,3 +1,5 @@
+import { CompletionRecord } from "../../../src/core/execution/CompletionRecord.js";
+
 export class Evaluator {
   constructor(lexicalEnv) {
     this.lexicalEnv = lexicalEnv;
@@ -45,5 +47,35 @@ export class Evaluator {
 
   executeExpressionStatement(node) {
     return this.evaluateLiteral(node.expression);
+  }
+
+  traverseASTInOrder(bodyArray) {
+    let completion;
+
+    if (bodyArray.length === 0) {
+      return CompletionRecord.Normal(undefined);
+    }
+
+    for (const node of bodyArray) {
+      switch (node.type) {
+        case "Literal":
+          completion = this.evaluateLiteral(node);
+
+          if(completion.type === "throw") {
+            return completion
+          }
+          break;
+        case "Identifier":
+          completion = this.evaluateIdentifier(node);
+          break;
+        case "VariableDeclaration":
+          completion = this.executeVariableStatement(node);
+          break;
+        case "ExpressionStatement":
+          completion = this.executeExpressionStatement(node);
+      }
+    }
+
+    return completion;
   }
 }
