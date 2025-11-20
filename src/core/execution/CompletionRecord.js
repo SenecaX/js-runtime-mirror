@@ -13,4 +13,11 @@ export class CompletionRecord {
             value: error
         })
     }
+
+    static Return(value) {
+        return Object.freeze({
+            type: "return",
+            value,
+        })
+    }
 }
